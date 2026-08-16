@@ -1,6 +1,7 @@
 # miniELTL
 
-En este repo voy a hacer un ejercicio de ETL sacando información de un csv y insertandolo en una bd, 
+> [!NOTE]
+> En este repositorio voy a hacer un ejercicio de ETL sacando información de un csv y insertandolo en una bd haciendol olo más real posible 
 
 Errores que voy encontrando
 1.en el csv hay campos vacios
