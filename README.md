@@ -1,3 +1,5 @@
+# miniELTL
+
 En este repo voy a hacer un ejercicio de ETL sacando información de un csv y insertandolo en una bd, 
 
 Errores que voy encontrando
