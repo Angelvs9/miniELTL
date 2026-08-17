@@ -1,6 +1,6 @@
 package MODELO;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Cliente {
     private int id;

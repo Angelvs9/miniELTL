@@ -2,6 +2,7 @@ import BBDD.ConfigLoader;
 import BBDD.gestorConexion;
 
 import static BBDD.Metodos.crearBBDD;
+import static BBDD.Metodos.insertardelCSV;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -12,7 +13,7 @@ void main() {
 
     gestorConexion g=new gestorConexion();
     crearBBDD(g.getConexion(),bd);
-
+    insertardelCSV(g.getConexion(),ConfigLoader.get().getProperty("csv.path"));
     g.cerrar();
 
 

@@ -5,6 +5,9 @@ import MODELO.Cliente;
 import java.io.*;
 import java.sql.*;
 import java.sql.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Metodos {
 
     public static boolean crearBBDD(Connection cn, String BD){
@@ -45,26 +48,19 @@ public class Metodos {
 
 
     public static void insertardelCSV(Connection cn,String data){
-        //LEER DATOS DEL CSV
-        int contador=0;
-        String Errores="";
+        //LEER DATOS DEL CSV PARA INSERTAR
+        String query = "insert into clientes values(?,?,?,?,?,?,?,?,?,?,?,?)";
+        int Errores=0;
+        int contadorLinea=0;
         String linea="";
-        String consulta="";
         try {
             FileReader fr=new FileReader(new File(data));
             BufferedReader br=new BufferedReader(fr);
             br.readLine();
             while((linea=br.readLine())!=null){
-                //separador , y además si hay algo vacio lo rellena con ""
-                String[] datos = linea.split(",",-1);
-                boolean rellenado=true;
 
-                for (int i=0;i<=datos.length;i++){
-                    //en la bd hay 12 campos
-                    if(datos[i].equals("")){
-                        Errores+="el campo numero:"+i+"esta vacio\n";
-                    }
-                }
+                String[] datos = linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+
                 int id = Integer.parseInt(datos[0].trim());
                 String customerId = datos[1].trim();
                 String nombre = datos[2].trim();
@@ -77,33 +73,42 @@ public class Metodos {
                 String email = datos[9].trim();
                 Date suscripcion = null;
                 if (!datos[10].trim().isEmpty()) {
+                    System.out.println("Linea " + contadorLinea + " -> fecha cruda: [" + datos[10].trim() + "]");
                     suscripcion = Date.valueOf(datos[10].trim());
                 }
+                else {
+                    System.out.println("Linea " + contadorLinea + " -> FECHA VACIA, se inserta como NULL");
+                }
                 String web = datos[11].trim();
-                Cliente tmp = new Cliente(id, customerId, nombre, apellido, empresa, ciudad, pais, telefono1, telefono2, email, suscripcion, web);
-                String query = "insert into clientes values(?,?,?,?,?,?,?,?,?,?,?,?)";
+                Cliente cliente = new Cliente(id, customerId, nombre, apellido, empresa, ciudad, pais, telefono1, telefono2, email, suscripcion, web);
+
 
                 PreparedStatement pst = cn.prepareStatement(query);
-                pst.setInt(1, tmp.getId());
-                pst.setString(2, tmp.getCliente_id());
-                pst.setString(3, tmp.getNombre());
-                pst.setString(4, tmp.getApellido());
-                pst.setString(5, tmp.getEmpresa());
-                pst.setString(6, tmp.getCiudad());
-                pst.setString(7, tmp.getPais());
-                pst.setString(8, tmp.getNtelefono());
-                pst.setString(9, tmp.getNtelefono2());
-                pst.setString(10, tmp.getEmail());
-                if (tmp.getSuscripcion() == null) {
+                pst.setInt(1, cliente.getId());
+                pst.setString(2, cliente.getCliente_id());
+                //el nombre en ese ejercicio es not null
+                if (cliente.getNombre() == null || cliente.getNombre().isEmpty()) {
+                    pst.setNull(3, java.sql.Types.VARCHAR);
+                } else {
+                    pst.setString(3, cliente.getNombre());
+                }
+                pst.setString(4, cliente.getApellido());
+                pst.setString(5, cliente.getEmpresa());
+                pst.setString(6, cliente.getCiudad());
+                pst.setString(7, cliente.getPais());
+                pst.setString(8, cliente.getNtelefono());
+                pst.setString(9, cliente.getNtelefono2());
+                pst.setString(10, cliente.getEmail());
+                if (cliente.getSuscripcion() == null) {
                     pst.setNull(11, java.sql.Types.DATE);
                 } else {
-                    pst.setDate(11, tmp.getSuscripcion());
+                    pst.setDate(11, cliente.getSuscripcion());
                 }
+                pst.setString(12, cliente.getWeb());
 
-                pst.setString(12, tmp.getWeb());
 
                 pst.executeUpdate();
-                contador++;
+                contadorLinea++;
                 pst.close();
             }
 
@@ -112,7 +117,22 @@ public class Metodos {
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            Errores++;
+
+            String fecha = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            String hora = java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
+
+            String detalleError = "--------------------------------------\nHora: " + hora + "\nQuery: " + query + "\nLinea: " + contadorLinea + "\nMotivo: " + e.getMessage() + "\n--------------------------------------\n";
+
+            String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_" + fecha + ".log";
+            File f = new File(nombreLog);
+
+            try (FileWriter fw = new FileWriter(f, true)) {
+                fw.write(detalleError);
+            } catch (IOException ioEx) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ioEx);
+            }
+
         }
 
     }
