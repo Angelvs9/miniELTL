@@ -1,7 +1,5 @@
 package MODELO;
 
-import org.h2.index.Index;
-
 import java.util.Date;
 
 public class Cliente {
@@ -12,14 +10,13 @@ public class Cliente {
     private String empresa;
     private String ciudad;
     private String pais;
-    private int ntelefono;
-    private int ntelefono2;
+    private String ntelefono;
+    private String ntelefono2;
     private String email;
-    private String suscripcion;
-    private Date fecha;
+    private Date suscripcion;
     private String web;
 
-    public Cliente(int id, String cliente_id, String nombre, String apellido, String empresa, String ciudad, String pais, int ntelefono, int ntelefono2, String email, String suscripcion, Date fecha, String web) {
+    public Cliente(int id, String cliente_id, String nombre, String apellido, String empresa, String ciudad, String pais, String ntelefono, String ntelefono2, String email, Date suscripcion, String web) {
         this.id = id;
         this.cliente_id = cliente_id;
         this.nombre = nombre;
@@ -31,7 +28,6 @@ public class Cliente {
         this.ntelefono2 = ntelefono2;
         this.email = email;
         this.suscripcion = suscripcion;
-        this.fecha = fecha;
         this.web = web;
     }
 
@@ -91,19 +87,19 @@ public class Cliente {
         this.pais = pais;
     }
 
-    public int getNtelefono() {
+    public String getNtelefono() {
         return ntelefono;
     }
 
-    public void setNtelefono(int ntelefono) {
+    public void setNtelefono(String ntelefono) {
         this.ntelefono = ntelefono;
     }
 
-    public int getNtelefono2() {
+    public String getNtelefono2() {
         return ntelefono2;
     }
 
-    public void setNtelefono2(int ntelefono2) {
+    public void setNtelefono2(String ntelefono2) {
         this.ntelefono2 = ntelefono2;
     }
 
@@ -115,20 +111,12 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getSuscripcion() {
+    public java.sql.Date getSuscripcion() {
         return suscripcion;
     }
 
-    public void setSuscripcion(String suscripcion) {
+    public void setSuscripcion(Date suscripcion) {
         this.suscripcion = suscripcion;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public String getWeb() {
@@ -149,11 +137,10 @@ public class Cliente {
                 ", empresa='" + empresa + '\'' +
                 ", ciudad='" + ciudad + '\'' +
                 ", pais='" + pais + '\'' +
-                ", ntelefono=" + ntelefono +
-                ", ntelefono2=" + ntelefono2 +
+                ", ntelefono='" + ntelefono + '\'' +
+                ", ntelefono2='" + ntelefono2 + '\'' +
                 ", email='" + email + '\'' +
-                ", suscripcion='" + suscripcion + '\'' +
-                ", fecha=" + fecha +
+                ", suscripcion=" + suscripcion +
                 ", web='" + web + '\'' +
                 '}';
     }
