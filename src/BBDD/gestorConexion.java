@@ -20,7 +20,7 @@ public class gestorConexion {
 
             conexion = DriverManager.getConnection(url, user, password);
             if (conexion != null) {
-                System.out.println("conectado");
+                System.out.println("conectado->" + nombreBD);
             }
         } catch (SQLException ex) {
             Logger.getLogger(gestorConexion.class.getName()).log(Level.SEVERE, null, ex);
