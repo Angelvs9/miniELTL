@@ -59,7 +59,7 @@ public class Metodos {
             br.readLine();
             while((linea=br.readLine())!=null){
 
-                String[] datos = linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                String[] datos = linea.split(",", -1);
 
                 int id = Integer.parseInt(datos[0].trim());
                 String customerId = datos[1].trim();
@@ -72,16 +72,13 @@ public class Metodos {
                 String telefono2 = datos[8].trim();
                 String email = datos[9].trim();
                 Date suscripcion = null;
-                if (!datos[10].trim().isEmpty()) {
-                    System.out.println("Linea " + contadorLinea + " -> fecha cruda: [" + datos[10].trim() + "]");
+                if (!datos[10].trim().isEmpty())
                     suscripcion = Date.valueOf(datos[10].trim());
-                }
-                else {
-                    System.out.println("Linea " + contadorLinea + " -> FECHA VACIA, se inserta como NULL");
-                }
+
+
                 String web = datos[11].trim();
                 Cliente cliente = new Cliente(id, customerId, nombre, apellido, empresa, ciudad, pais, telefono1, telefono2, email, suscripcion, web);
-
+                cliente.toString();
 
                 PreparedStatement pst = cn.prepareStatement(query);
                 pst.setInt(1, cliente.getId());
