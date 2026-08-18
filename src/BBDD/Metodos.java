@@ -118,23 +118,30 @@ public class Metodos {
             throw new RuntimeException(e);
         } catch (SQLException e) {
             Errores++;
-
-            String fecha = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            String hora = java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
-
-            String detalleError = "--------------------------------------\nHora: " + hora + "\nQuery: " + query + "\nLinea: " + contadorLinea + "\nMotivo: " + e.getMessage() + "\n--------------------------------------\n";
-
-            String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_" + fecha + ".log";
-            File f = new File(nombreLog);
-
-            try (FileWriter fw = new FileWriter(f, true)) {
-                fw.write(detalleError);
-            } catch (IOException ioEx) {
-                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ioEx);
-            }
-
+            enviarLog(query,contadorLinea,e);
+            System.out.println("entra");
         }
 
     }
+
+    public static void enviarLog(String query,int contadorLinea,SQLException e){
+
+
+        String fecha = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        String hora = java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
+
+        String detalleError = "--------------------------------------\nHora: " + hora + "\nQuery: " + query + "\nLinea: " + contadorLinea + "\nMotivo: " + e.getMessage() + "\n--------------------------------------\n";
+
+        String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_" + fecha + ".log";
+        File f = new File(nombreLog);
+
+        try (FileWriter fw = new FileWriter(f, true)) {
+            fw.write(detalleError);
+        } catch (IOException ioEx) {
+            Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ioEx);
+        }
+    }
+
+
 
 }
