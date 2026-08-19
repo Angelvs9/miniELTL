@@ -47,79 +47,64 @@ public class Metodos {
     }
 
 
-    public static void insertardelCSV(Connection cn,String data){
-        //LEER DATOS DEL CSV PARA INSERTAR
-        String query = "insert into clientes values(?,?,?,?,?,?,?,?,?,?,?,?)";
-        int Errores=0;
-        int contadorLinea=0;
-        String linea="";
+    public static void tratarDatos(Connection cn,String data){
+        //LEER DATOS DEL CSV y llamar a insertar
+        int contadorLinea=1;
         try {
             FileReader fr=new FileReader(new File(data));
-            BufferedReader br=new BufferedReader(fr);
+            BufferedReader br= new BufferedReader(fr);
+            String linea="";
+            //salto cabezera
             br.readLine();
             while((linea=br.readLine())!=null){
-
-                String[] datos = linea.split(",", -1);
-
-                int id = Integer.parseInt(datos[0].trim());
-                String customerId = datos[1].trim();
-                String nombre = datos[2].trim();
-                String apellido = datos[3].trim();
-                String empresa = datos[4].trim();
-                String ciudad = datos[5].trim();
-                String pais = datos[6].trim();
-                String telefono1 = datos[7].trim();
-                String telefono2 = datos[8].trim();
-                String email = datos[9].trim();
+                String[] datos = linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                for (int i = 0; i < datos.length; i++) {
+                    if (datos[i].isEmpty() || datos[i]=="") {
+                        datos[i] = null;
+                    }
+                }
                 Date suscripcion = null;
-                if (!datos[10].trim().isEmpty())
-                    suscripcion = Date.valueOf(datos[10].trim());
 
-
-                String web = datos[11].trim();
-                Cliente cliente = new Cliente(id, customerId, nombre, apellido, empresa, ciudad, pais, telefono1, telefono2, email, suscripcion, web);
-                cliente.toString();
-
-                PreparedStatement pst = cn.prepareStatement(query);
-                pst.setInt(1, cliente.getId());
-                pst.setString(2, cliente.getCliente_id());
-                //el nombre en ese ejercicio es not null
-                if (cliente.getNombre() == null || cliente.getNombre().isEmpty()) {
-                    pst.setNull(3, java.sql.Types.VARCHAR);
-                } else {
-                    pst.setString(3, cliente.getNombre());
+                if (datos[10] != null) {
+                    suscripcion = java.sql.Date.valueOf(datos[10]);
                 }
-                pst.setString(4, cliente.getApellido());
-                pst.setString(5, cliente.getEmpresa());
-                pst.setString(6, cliente.getCiudad());
-                pst.setString(7, cliente.getPais());
-                pst.setString(8, cliente.getNtelefono());
-                pst.setString(9, cliente.getNtelefono2());
-                pst.setString(10, cliente.getEmail());
-                if (cliente.getSuscripcion() == null) {
-                    pst.setNull(11, java.sql.Types.DATE);
-                } else {
-                    pst.setDate(11, cliente.getSuscripcion());
+                //ya está el cliente creado en principio
+                Cliente cliente = new Cliente(
+                        Integer.parseInt(datos[0]),
+                        datos[1],
+                        datos[2],
+                        datos[3],
+                        datos[4],
+                        datos[5],
+                        datos[6],
+                        datos[7],
+                        datos[8],
+                        datos[9],
+                        suscripcion,
+                        datos[11]
+                );
+                if(insertarCliente(cliente,contadorLinea)){
+                    contadorLinea++;
                 }
-                pst.setString(12, cliente.getWeb());
-
-
-                pst.executeUpdate();
-                contadorLinea++;
-                pst.close();
+                //dejo asi el if porque el log se enviaria dentro del metodo de insertarCliente entonces si no da true es que ha enviado el log y no tiene que contar la linea
             }
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } catch (SQLException e) {
-            Errores++;
-            enviarLog(query,contadorLinea,e);
-            System.out.println("entra");
         }
 
     }
+
+    private static boolean insertarCliente(Cliente c,int linea){
+        //si sale mal enviarLog desde aqui y asi paso la excepcion y todo
+        //aqui ira la query el preparedStatement
+        boolean insertado=false;
+        return insertado;
+    }
+
+
 
     public static void enviarLog(String query,int contadorLinea,SQLException e){
 
