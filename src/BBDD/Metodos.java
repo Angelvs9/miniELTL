@@ -59,7 +59,7 @@ public class Metodos {
             while((linea=br.readLine())!=null){
                 String[] datos = linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                 for (int i = 0; i < datos.length; i++) {
-                    if (datos[i].isEmpty() || datos[i]=="") {
+                    if (datos[i] == null || datos[i].trim().isEmpty() || datos[i].trim().equals("\"\"")) {
                         datos[i] = null;
                     }
                 }
@@ -83,7 +83,7 @@ public class Metodos {
                         suscripcion,
                         datos[11]
                 );
-                if(insertarCliente(cliente,contadorLinea)){
+                if(insertarCliente(cliente,contadorLinea,cn)){
                     contadorLinea++;
                 }
                 //dejo asi el if porque el log se enviaria dentro del metodo de insertarCliente entonces si no da true es que ha enviado el log y no tiene que contar la linea
@@ -97,10 +97,37 @@ public class Metodos {
 
     }
 
-    private static boolean insertarCliente(Cliente c,int linea){
+    private static boolean insertarCliente(Cliente c,int linea,Connection cn){
         //si sale mal enviarLog desde aqui y asi paso la excepcion y todo
         //aqui ira la query el preparedStatement
         boolean insertado=false;
+        String query="insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        //este temp es para que en caso de error yo vea directamente sustituidos los datos en el objeto
+        String temp = "insert into clientes values(" + c.getId() + ",'" + c.getCliente_id() + "','" + c.getNombre() + "','" + c.getApellido() + "','" + c.getEmpresa() + "','" + c.getCiudad() + "','" + c.getPais() + "','" + c.getNtelefono() + "','" + c.getNtelefono2() + "','" + c.getEmail() + "'," + (c.getSuscripcion() != null ? "'" + c.getSuscripcion() + "'" : "NULL") + ",'" + c.getWeb() + "')";
+        
+        try {
+            PreparedStatement pt=cn.prepareStatement(query);
+            pt.setInt(1,c.getId());
+            pt.setString(2, c.getCliente_id());
+            pt.setString(3, c.getNombre());
+            pt.setString(4, c.getApellido());
+            pt.setString(5, c.getEmpresa());
+            pt.setString(6, c.getCiudad());
+            pt.setString(7, c.getPais());
+            pt.setString(8, c.getNtelefono());
+            pt.setString(9, c.getNtelefono2());
+            pt.setString(10, c.getEmail());
+            pt.setDate(11, c.getSuscripcion());
+            pt.setString(12, c.getWeb());
+            pt.executeUpdate();
+            pt.close();
+            insertado=true;
+
+        } catch (SQLException e) {
+            enviarLog(temp,linea,e);
+        }
+
+
         return insertado;
     }
 
