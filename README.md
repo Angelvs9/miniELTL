@@ -9,6 +9,7 @@ Leer de archivos con datos que en una situación empresarial nos enviaría un eq
 
 
 ### Errores o puntos que voy encontrando que son interesantes de comentar
+<hr>
 
 ### 1. En el csv hay campos vacíos
 
