@@ -34,9 +34,9 @@ Leer de archivos con datos que en una situación empresarial nos enviaría un eq
 
 > [!IMPORTANT]
 > La solución fue sustituir el split(",") simple por uno que respeta las comillas, usando una expresión regular que separa por comas excepto cuando están dentro de un número impar de comillas:
-​> ```java
+```java
 > linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)
-​> ```
+```
 
 <sub>El segundo parámetro, -1, es igual de importante y resuelve un problema distinto: por defecto, String.split(...) en Java elimina los elementos vacíos que queden al final del array resultante.Si la última columna de una fila (web, en este CSV) viene vacía, un split sin ese -1 devolvería un array más corto de lo esperado, y cualquier acceso a esa posición lanzaría `ArrayIndexOutOfBoundsException`. El -1 obliga a conservar siempre el número real de columnas, estén vacías o no.</sub>
 
