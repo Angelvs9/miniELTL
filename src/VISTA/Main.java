@@ -2,6 +2,7 @@ import BBDD.ConfigLoader;
 import BBDD.gestorConexion;
 
 import static BBDD.MetodosCliente.*;
+import static BBDD.MetodosFactura.*;
 
 
 private static int contarLineasCSV(String data) {
@@ -24,12 +25,16 @@ void main() {
 
     //variable del variable_resolution de config
     String tablaClientes = ConfigLoader.get().getProperty("sql.customerTable");
+    String tablaFacturas = ConfigLoader.get().getProperty("sql.BillTable");
 
     gestorConexion g=new gestorConexion();
     crearTablaClientes(g.getConexion(),tablaClientes);
+    crearTablaFacturas(g.getConexion(),tablaFacturas);
+
+
 
     //instertamos los clientes
-    //======================================================================
+    System.out.println("======================================================================\n");
     //tratar datos es el que lo inserta tambien
     System.out.println("insertamos clientes:\n");
     System.out.println("===== customers-1000.csv =====\n");
@@ -41,8 +46,15 @@ void main() {
         System.out.println("no se han insertado todos los clientes correctamente, se insertaron solo " +clientesInsertados+ ", revisar el log");
     else
         System.out.println("se insertaron todos lo clientes adecuadamnete");
-    //======================================================================
+    System.out.println("======================================================================\n");
     System.out.println("seguimos con la inserción de las facturas");
+
+
+
+
+
+
+    System.out.println("======================================================================\n");
     g.cerrar();
 
 
