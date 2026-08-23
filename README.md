@@ -1,20 +1,20 @@
-## miniELTL
+# MiniELTL
 
 > [!NOTE]
 > En este repositorio hago un ejercicio de ETL: extraigo información de un CSV y la inserto en una base de datos, intentando acercarme lo máximo posible a un caso real (datos sucios o con caracteres extraños, restricciones de la BD, log errores). 
 
-#Objetivo
+## Objetivo
 
 Leer de archivos con datos que en una situacion empresarial nos enviaria un equipo diferente y tendriamos transformarlo y cargarlo en una base de datos, sin que el proceso se detenga por culpa de filas con datos incompletos o mal formados y dejando constancia de qué filas fallaron y por qué.
 
 
-#Errores o puntos que voy encontrando que son interesantes de comentar
+## Errores o puntos que voy encontrando que son interesantes de comentar
 
 1. En el csv hay campos vacios
-2. 
+
 No todas las filas traen el dato completo: hay teléfonos, emails, fechas de suscripción y nombres que faltan. Esto es habitual en un CSV real,así que el proceso tiene que decidir, campo a campo, qué hacer cuando no hay valor si la columna de la base de datos lo permite, se inserta como ausencia real de dato; si la columna es obligatoria (como nombre), la fila se descarta y se deja constancia en el log en lugar de forzar un valor inventado.
 
-3. El csv (de donde saco la informacion) viene con el campo index y no hace falta que en el bd esté el autoincrement
+2. El csv (de donde saco la informacion) viene con el campo index y no hace falta que en el bd esté el autoincrement
 
 
 
