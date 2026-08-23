@@ -10,16 +10,16 @@ Leer de archivos con datos que en una situación empresarial nos enviaría un eq
 
 ## Errores o puntos que voy encontrando que son interesantes de comentar
 
-1. En el csv hay campos vacíos
+### 1. En el csv hay campos vacíos
 
-No todas las filas traen el dato completo: hay teléfonos, emails, fechas de suscripción y nombres que faltan. Esto es habitual en un CSV real,así que el proceso tiene que decidir, campo a campo, qué hacer cuando no hay valor si la columna de la base de datos lo permite, se inserta como ausencia real de dato; si la columna es obligatoria (como nombre), la fila se descarta y se deja constancia en el log en lugar de forzar un valor inventado.
+<sub>No todas las filas traen el dato completo: hay teléfonos, emails, fechas de suscripción y nombres que faltan. Esto es habitual en un CSV real,así que el proceso tiene que decidir, campo a campo, qué hacer cuando no hay valor si la columna de la base de datos lo permite, se inserta como ausencia real de dato; si la columna es obligatoria (como nombre), la fila se descarta y se deja constancia en el log en lugar de forzar un valor inventado.</sub>
 
-2. El csv (customers-1000.csv) viene con el campo index y no hace falta que en el base de datos esté el AUTO_INCREMENT
+### 2. El csv (customers-1000.csv) viene con el campo index y no hace falta que en el base de datos esté el AUTO_INCREMENT
    
-El CSV ya trae su propia columna Index, con un valor único y secuencial para cada fila. En vez de ignorarlo y dejar que la base de datos generase su propio identificador con AUTO_INCREMENT, se decidió reutilizar directamente ese Index como clave primaria (id)
+<sub>El CSV ya trae su propia columna Index, con un valor único y secuencial para cada fila. En vez de ignorarlo y dejar que la base de datos generase su propio identificador con AUTO_INCREMENT, se decidió reutilizar directamente ese Index como clave primaria (id)</sub>
 
 
-4. Los campos de la base de datos se llaman diferente que los de la cabecera del CSV
+### 3. Los campos de la base de datos se llaman diferente que los de la cabecera del CSV
 
 La cabecera del CSV usa nombres en inglés y con mayúsculas/espacios (Customer Id, First Name, Subscription Date...), mientras que la tabla usa nombres en español y en snake_case (customer_id, nombre, fecha_suscripcion...). No hay ninguna correspondencia automática entre ambos: el mapeo está hecho a mano, por posición, dentro del código.
 
