@@ -33,10 +33,10 @@ Leer de archivos con datos que en una situación empresarial nos enviaría un eq
 <sub>El efecto no se queda ahí — como el array resultante tiene ahora una posición de más, todas las columnas siguientes de esa fila quedan desplazadas una posición. En la práctica, esto provocaba que el programa intentara convertir un email en una fecha (porque, tras el desplazamiento, en la posición donde se esperaba la fecha de suscripción aparecía el contenido de la columna email), lanzando una excepción de formato inválido en un campo que en realidad nunca tuvo ningún problema — el error real estaba varias columnas antes, en el campo con la coma sin escapar.</sub>
 
 > [!IMPORTANT]
-La solución fue sustituir el split(",") simple por uno que respeta las comillas, usando una expresión regular que separa por comas excepto cuando están dentro de un número impar de comillas:
-​```java
-linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)
-​```
+> La solución fue sustituir el split(",") simple por uno que respeta las comillas, usando una expresión regular que separa por comas excepto cuando están dentro de un número impar de comillas:
+​> ```java
+> linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)
+​> ```
 
 <sub>El segundo parámetro, -1, es igual de importante y resuelve un problema distinto: por defecto, String.split(...) en Java elimina los elementos vacíos que queden al final del array resultante.Si la última columna de una fila (web, en este CSV) viene vacía, un split sin ese -1 devolvería un array más corto de lo esperado, y cualquier acceso a esa posición lanzaría `ArrayIndexOutOfBoundsException`. El -1 obliga a conservar siempre el número real de columnas, estén vacías o no.</sub>
 
@@ -44,6 +44,7 @@ linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1)
 ### 5. Los campos vacíos no se insertaban como NULL, sino como el texto literal ""
 > [!WARNING]
 > Un campo vacío tras el split no es lo mismo que `null` en Java, y `NOT NULL` no bloquea cadenas vacías.
+
 <sub>Una vez resuelto el problema del split, apareció uno distinto y más sutil: cuando un campo del CSV está vacío, el resultado del split para esa posición es un String de longitud cero ("") es decir, un valor real, aunque no tenga caracteres, no la ausencia de valor.</sub>
 
 <sub>Para detectarlo y corregirlo de forma explícita antes de llegar al INSERT, se añadió un recorrido sobre el array de datos ya separado, que normaliza cualquier variante de "campo sin contenido real" a un null de Java de verdad (esto es lo que se me ocurrió, seguro que había alguna otra forma) </sub>
