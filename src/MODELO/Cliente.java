@@ -15,6 +15,7 @@ public class Cliente {
     private String email;
     private Date suscripcion;
     private String web;
+    private boolean activo;
 
     public Cliente(int id, String cliente_id, String nombre, String apellido, String empresa, String ciudad, String pais, String ntelefono, String ntelefono2, String email, Date suscripcion, String web) {
         this.id = id;
@@ -29,6 +30,31 @@ public class Cliente {
         this.email = email;
         this.suscripcion = suscripcion;
         this.web = web;
+        this.activo=true;
+    }
+
+    public Cliente(int id, String cliente_id, String nombre, String apellido, String empresa, String ciudad, String pais, String ntelefono, String ntelefono2, String email, Date suscripcion, String web, boolean activo) {
+        this.id = id;
+        this.cliente_id = cliente_id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.empresa = empresa;
+        this.ciudad = ciudad;
+        this.pais = pais;
+        this.ntelefono = ntelefono;
+        this.ntelefono2 = ntelefono2;
+        this.email = email;
+        this.suscripcion = suscripcion;
+        this.web = web;
+        this.activo = activo;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public int getId() {

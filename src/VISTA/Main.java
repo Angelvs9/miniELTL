@@ -1,20 +1,48 @@
 import BBDD.ConfigLoader;
 import BBDD.gestorConexion;
 
-import static BBDD.Metodos.crearBBDD;
-import static BBDD.Metodos.tratarDatos;
+import static BBDD.MetodosCliente.*;
+
+
+private static int contarLineasCSV(String data) {
+    int nclientes = 0;
+    try (BufferedReader br = new BufferedReader(new FileReader(data))) {
+        br.readLine(); // saltar cabecera
+        while (br.readLine() != null) {
+            nclientes++;
+        }
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+    return nclientes;
+}
+
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
 
     //variable del variable_resolution de config
-    String bd = ConfigLoader.get().getProperty("sql.schema");
+    String tablaClientes = ConfigLoader.get().getProperty("sql.customerTable");
 
     gestorConexion g=new gestorConexion();
-    crearBBDD(g.getConexion(),bd);
+    crearTablaClientes(g.getConexion(),tablaClientes);
+
+    //instertamos los clientes
+    //======================================================================
     //tratar datos es el que lo inserta tambien
-    tratarDatos(g.getConexion(),ConfigLoader.get().getProperty("csv.path"));
+    System.out.println("insertamos clientes:\n");
+    System.out.println("===== customers-1000.csv =====\n");
+    int totalClientes=contarLineasCSV(ConfigLoader.get().getProperty("csv.path.customers"));
+    System.out.println("el fichero csv cuenta con: " + totalClientes + " en total");
+    int clientesInsertados=tratarDatos(g.getConexion(),ConfigLoader.get().getProperty("csv.path.customers"));
+
+    if (totalClientes>clientesInsertados)
+        System.out.println("no se han insertado todos los clientes correctamente, se insertaron solo " +clientesInsertados+ ", revisar el log");
+    else
+        System.out.println("se insertaron todos lo clientes adecuadamnete");
+    //======================================================================
+    System.out.println("seguimos con la inserción de las facturas");
     g.cerrar();
 
 

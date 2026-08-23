@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS clientes (
     telefono2 VARCHAR(50),
     email VARCHAR(150),
     fecha_suscripcion DATE,
-    web VARCHAR(200)
+    web VARCHAR(200),
+    activo BOOLEAN NOT NULL DEFAULT TRUE
 );

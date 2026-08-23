@@ -8,12 +8,13 @@ import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Metodos {
+public class MetodosCliente {
 
-    public static boolean crearBBDD(Connection cn, String BD){
+    public static boolean crearTablaClientes(Connection cn, String BD){
         boolean resultado=true;
         String linea="";
         String consulta="";
+
 
         File f= new File(BD);
         try {
@@ -47,9 +48,10 @@ public class Metodos {
     }
 
 
-    public static void tratarDatos(Connection cn,String data){
+    public static int tratarDatos(Connection cn,String data){
         //LEER DATOS DEL CSV y llamar a insertar
         int contadorLinea=1;
+        int insertados=0;
         try {
             FileReader fr=new FileReader(new File(data));
             BufferedReader br= new BufferedReader(fr);
@@ -84,9 +86,10 @@ public class Metodos {
                         datos[11]
                 );
                 if(insertarCliente(cliente,contadorLinea,cn)){
-                    contadorLinea++;
+                    insertados++;
                 }
                 //dejo asi el if porque el log se enviaria dentro del metodo de insertarCliente entonces si no da true es que ha enviado el log y no tiene que contar la linea
+                contadorLinea++;
             }
 
         } catch (FileNotFoundException e) {
@@ -94,16 +97,16 @@ public class Metodos {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        return insertados;
     }
 
     private static boolean insertarCliente(Cliente c,int linea,Connection cn){
         //si sale mal enviarLog desde aqui y asi paso la excepcion y todo
         //aqui ira la query el preparedStatement
         boolean insertado=false;
-        String query="insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String query="insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         //este temp es para que en caso de error yo vea directamente sustituidos los datos en el objeto
-        String temp = "insert into clientes values(" + c.getId() + ",'" + c.getCliente_id() + "','" + c.getNombre() + "','" + c.getApellido() + "','" + c.getEmpresa() + "','" + c.getCiudad() + "','" + c.getPais() + "','" + c.getNtelefono() + "','" + c.getNtelefono2() + "','" + c.getEmail() + "'," + (c.getSuscripcion() != null ? "'" + c.getSuscripcion() + "'" : "NULL") + ",'" + c.getWeb() + "')";
+        String temp = "insert into clientes values(" + c.getId() + ",'" + c.getCliente_id() + "','" + c.getNombre() + "','" + c.getApellido() + "','" + c.getEmpresa() + "','" + c.getCiudad() + "','" + c.getPais() + "','" + c.getNtelefono() + "','" + c.getNtelefono2() + "','" + c.getEmail() + "'," + (c.getSuscripcion() != null ? "'" + c.getSuscripcion() + "'" : "NULL") + ",'" + c.getWeb() + ",'" +c.isActivo()+  "')";
         
         try {
             PreparedStatement pt=cn.prepareStatement(query);
@@ -119,6 +122,7 @@ public class Metodos {
             pt.setString(10, c.getEmail());
             pt.setDate(11, c.getSuscripcion());
             pt.setString(12, c.getWeb());
+            pt.setBoolean(13, c.isActivo());
             pt.executeUpdate();
             pt.close();
             insertado=true;
@@ -138,16 +142,23 @@ public class Metodos {
 
         String fecha = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         String hora = java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
-
-        String detalleError = "--------------------------------------\nHora: " + hora + "\nQuery: " + query + "\nLinea: " + contadorLinea + "\nMotivo: " + e.getMessage() + "\n--------------------------------------\n";
-
         String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_" + fecha + ".log";
         File f = new File(nombreLog);
+
+        if (!f.exists()) {
+            try (FileWriter fwTitulo = new FileWriter(f, true)) {
+                fwTitulo.write("===== customers-1000.csv =====\n");
+            } catch (IOException ioEx) {
+                Logger.getLogger(MetodosCliente.class.getName()).log(Level.SEVERE, null, ioEx);
+            }
+        }
+
+        String detalleError = "--------------------------------------\nHora: " + hora + "\nQuery: " + query + "\nLinea: " + contadorLinea + "\nMotivo: " + e.getMessage() + "\n--------------------------------------\n";
 
         try (FileWriter fw = new FileWriter(f, true)) {
             fw.write(detalleError);
         } catch (IOException ioEx) {
-            Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ioEx);
+            Logger.getLogger(MetodosCliente.class.getName()).log(Level.SEVERE, null, ioEx);
         }
     }
 
