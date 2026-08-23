@@ -8,7 +8,7 @@
 Leer de archivos con datos que en una situación empresarial nos enviaría un equipo diferente y tendríamos transformarlo y cargarlo en una base de datos, sin que el proceso se detenga por culpa de filas con datos incompletos o mal formados y dejando constancia de qué filas fallaron y por qué.
 
 
-## Errores o puntos que voy encontrando que son interesantes de comentar
+### Errores o puntos que voy encontrando que son interesantes de comentar
 
 ### 1. En el csv hay campos vacíos
 
@@ -21,12 +21,11 @@ Leer de archivos con datos que en una situación empresarial nos enviaría un eq
 
 ### 3. Los campos de la base de datos se llaman diferente que los de la cabecera del CSV
 
-La cabecera del CSV usa nombres en inglés y con mayúsculas/espacios (Customer Id, First Name, Subscription Date...), mientras que la tabla usa nombres en español y en snake_case (customer_id, nombre, fecha_suscripcion...). No hay ninguna correspondencia automática entre ambos: el mapeo está hecho a mano, por posición, dentro del código.
+<sub>La cabecera del CSV usa nombres en inglés y con mayúsculas/espacios (Customer Id, First Name, Subscription Date...), mientras que la tabla usa nombres en español y en snake_case (customer_id, nombre, fecha_suscripcion...). No hay ninguna correspondencia automática entre ambos: el mapeo está hecho a mano, por posición, dentro del código.
 
-Esto es una decisión deliberada del ejercicio: en ningún momento se ha tocado la base de datos para adaptarla al CSV (ni renombrando columnas, ni cambiando tipos), y toda la traducción entre un mundo y el otro ocurre exclusivamente en el código. La idea es simular un escenario habitual en un entorno de trabajo real: muchas veces no se tiene permiso para modificar la estructura de una base de datos ya existente (es de otro equipo, está en producción, tiene otras aplicaciones dependiendo de ella...), así que el código es lo que se tiene que adaptar.
+Esto es una decisión deliberada del ejercicio: en ningún momento se ha tocado la base de datos para adaptarla al CSV (ni renombrando columnas, ni cambiando tipos), y toda la traducción entre un mundo y el otro ocurre exclusivamente en el código. La idea es simular un escenario habitual en un entorno de trabajo real: muchas veces no se tiene permiso para modificar la estructura de una base de datos ya existente (es de otro equipo, está en producción, tiene otras aplicaciones dependiendo de ella...), así que el código es lo que se tiene que adaptar.</sub>
 
 
-   
 6. Ademas el campo del nombre es obligatorio y hay filas que no lo tienen
 7. el problema principal de este ejercicio ha sido que había nombres que tenian tambien ',' dentro y entonces al separador ser la ',' había problemas, y si faltaba algún dato el split devolvia menos campos y faltaba uno por rellenar
 8. y el ultimo problema que tuve es que con el split usaba una expresión regular para que rellenase ese campo vacío con "" y luego eso es lo que se insertaba literalmente en la bd, al final tuve qur forzar que si encontraba "" que lo pusiera a null directamente
