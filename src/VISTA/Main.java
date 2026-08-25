@@ -53,8 +53,8 @@ void main() {
     System.out.println("======================================================================\n");
     System.out.println("seguimos con la inserción de las facturas");
     System.out.println("cosasa");
-
-
+    int facturasinsertadas=insertarFacturas(g.getConexion(),ConfigLoader.get().getProperty("csv.path.Bills"));
+    System.out.println("hay tantas factaras insertadas, saldra solo 1 de momento"+facturasinsertadas);
 
 
 

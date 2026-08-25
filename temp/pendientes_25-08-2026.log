@@ -1,0 +1,401 @@
+===== customers-1000.csv =====
+--------------------------------------
+Hora: 16:56:37
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 16:56:37
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 16:56:37
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 16:56:37
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 16:56:37
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:09:28
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:09:28
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:09:28
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:09:28
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:09:28
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:29
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:29
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:29
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:29
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:29
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:46
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:46
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:46
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:46
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:13:46
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:14:33
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:14:33
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:14:33
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:14:33
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:14:33
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:07
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:07
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:07
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:07
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:07
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:24
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:24
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:24
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:24
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:24
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:55
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:55
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:55
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:55
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:16:55
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:25
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:25
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:25
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:25
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:25
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:47
+Query: insert into clientes values(1,'dE014d010c7ab0c','null','Goodman','Stewart-Flynn','Rowlandberg','Macao','846-790-4623x4715','(422)787-2331x71127','marieyates@gomez-spencer.info','2021-07-26','http://www.shea.biz/,'true')
+Linea: 1
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:47
+Query: insert into clientes values(5,'D60df62ad2ae41E','null','Woods','Mccarthy-Kelley','Port Jacksonland','Nepal','+1-360-693-4419x19272','163-627-2565','jesus90@roberson.info','2022-04-22','null,'true')
+Linea: 5
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:47
+Query: insert into clientes values(10,'aAa1EDfaA70DA0c','null','Estrada','May Inc','Welchton','United Arab Emirates','001-648-790-9244','973-767-3611','christie44@mckenzie.biz','2020-09-03','https://www.salinas.net/,'true')
+Linea: 10
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:47
+Query: insert into clientes values(12,'bf2fA37cbAd7dDc','null','Ritter','Bradford and Sons','West Francisco','Palau','292.313.1902','(065)075-0554','tammiepope@arroyo-baldwin.com','2022-01-19','http://sellers.biz/,'true')
+Linea: 12
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------
+--------------------------------------
+Hora: 18:42:47
+Query: insert into clientes values(34,'7c4c673af703a09','null','Montes','Cohen-Copeland','Tonyville','Armenia','001-999-585-7539x536','838-203-4008x6959','hodgebrenda@roach-winters.com','2021-05-06','https://www.garcia.com/,'true')
+Linea: 34
+Motivo: La columna "NOMBRE" no permite valores nulos (NULL)
+NULL not allowed for column "NOMBRE"; SQL statement:
+insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?) [23502-232]
+--------------------------------------

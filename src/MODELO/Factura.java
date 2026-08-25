@@ -4,43 +4,68 @@ import java.sql.Date;
 
 public class Factura {
 
-    private String Ruc;
+    private String ruc;
+    private int idCliente;
     private String tipoRegistro;
     private String tipoComprobante;
-    private Date fechaEmision;
-    private String MetodoPago;
-    private int Ncomprobante;
+    private String fechaEmision;
+    private String metodoPago;
+    private int ncomprobante;
     private double ivaPorcentaje;
     private double parteIva;
     private double total;
-    private String ImputaIVA;
-    private String ImputaIRE;
-    private String ImputaIRP;
-    private String Imputar;
+    private String imputaIVA;
+    private String imputaIRE;
+    private String imputaIRP;
+    private String imputar;
 
-
-    public Factura(String ruc, String tipoRegistro, String tipoComprobante, Date fechaEmision, String metodoPago, int ncomprobante, double ivaPorcentaje, double parteIva, double total, String imputaIVA, String imputaIRE, String imputaIRP, String imputar) {
-        Ruc = ruc;
+    public Factura(String ruc, int idCliente, String tipoRegistro, String tipoComprobante, String fechaEmision, String metodoPago, int ncomprobante, double ivaPorcentaje, double parteIva, double total, String imputaIVA, String imputaIRE, String imputaIRP, String imputar) {
+        this.ruc = ruc;
+        this.idCliente = idCliente;
         this.tipoRegistro = tipoRegistro;
         this.tipoComprobante = tipoComprobante;
         this.fechaEmision = fechaEmision;
-        MetodoPago = metodoPago;
-        Ncomprobante = ncomprobante;
+        this.metodoPago = metodoPago;
+        this.ncomprobante = ncomprobante;
         this.ivaPorcentaje = ivaPorcentaje;
         this.parteIva = parteIva;
         this.total = total;
-        ImputaIVA = imputaIVA;
-        ImputaIRE = imputaIRE;
-        ImputaIRP = imputaIRP;
-        Imputar = imputar;
+        this.imputaIVA = imputaIVA;
+        this.imputaIRE = imputaIRE;
+        this.imputaIRP = imputaIRP;
+        this.imputar = imputar;
+    }
+
+    public Factura(String ruc, String tipoRegistro, String tipoComprobante, String fechaEmision, String metodoPago, int ncomprobante, double ivaPorcentaje, double parteIva, double total, String imputaIVA, String imputaIRE, String imputaIRP, String imputar) {
+        this.ruc = ruc;
+        this.tipoRegistro = tipoRegistro;
+        this.tipoComprobante = tipoComprobante;
+        this.fechaEmision = fechaEmision;
+        this.metodoPago = metodoPago;
+        this.ncomprobante = ncomprobante;
+        this.ivaPorcentaje = ivaPorcentaje;
+        this.parteIva = parteIva;
+        this.total = total;
+        this.imputaIVA = imputaIVA;
+        this.imputaIRE = imputaIRE;
+        this.imputaIRP = imputaIRP;
+        this.imputar = imputar;
     }
 
     public String getRuc() {
-        return Ruc;
+        return ruc;
     }
 
     public void setRuc(String ruc) {
-        Ruc = ruc;
+        this.ruc = ruc;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getTipoRegistro() {
@@ -59,28 +84,28 @@ public class Factura {
         this.tipoComprobante = tipoComprobante;
     }
 
-    public Date getFechaEmision() {
+    public String getFechaEmision() {
         return fechaEmision;
     }
 
-    public void setFechaEmision(Date fechaEmision) {
+    public void setFechaEmision(String fechaEmision) {
         this.fechaEmision = fechaEmision;
     }
 
     public String getMetodoPago() {
-        return MetodoPago;
+        return metodoPago;
     }
 
     public void setMetodoPago(String metodoPago) {
-        MetodoPago = metodoPago;
+        this.metodoPago = metodoPago;
     }
 
     public int getNcomprobante() {
-        return Ncomprobante;
+        return ncomprobante;
     }
 
     public void setNcomprobante(int ncomprobante) {
-        Ncomprobante = ncomprobante;
+        this.ncomprobante = ncomprobante;
     }
 
     public double getIvaPorcentaje() {
@@ -108,57 +133,56 @@ public class Factura {
     }
 
     public String getImputaIVA() {
-        return ImputaIVA;
+        return imputaIVA;
     }
 
     public void setImputaIVA(String imputaIVA) {
-        ImputaIVA = imputaIVA;
+        this.imputaIVA = imputaIVA;
     }
 
     public String getImputaIRE() {
-        return ImputaIRE;
+        return imputaIRE;
     }
 
     public void setImputaIRE(String imputaIRE) {
-        ImputaIRE = imputaIRE;
+        this.imputaIRE = imputaIRE;
     }
 
     public String getImputaIRP() {
-        return ImputaIRP;
+        return imputaIRP;
     }
 
     public void setImputaIRP(String imputaIRP) {
-        ImputaIRP = imputaIRP;
+        this.imputaIRP = imputaIRP;
     }
 
     public String getImputar() {
-        return Imputar;
+        return imputar;
     }
 
     public void setImputar(String imputar) {
-        Imputar = imputar;
+        this.imputar = imputar;
     }
-
 
     @Override
     public String toString() {
         return "Factura{" +
-                "Ruc='" + Ruc + '\'' +
+                "ruc='" + ruc + '\'' +
+                ", idCliente=" + idCliente +
                 ", tipoRegistro='" + tipoRegistro + '\'' +
                 ", tipoComprobante='" + tipoComprobante + '\'' +
                 ", fechaEmision=" + fechaEmision +
-                ", MetodoPago='" + MetodoPago + '\'' +
-                ", Ncomprobante=" + Ncomprobante +
+                ", metodoPago='" + metodoPago + '\'' +
+                ", ncomprobante=" + ncomprobante +
                 ", ivaPorcentaje=" + ivaPorcentaje +
                 ", parteIva=" + parteIva +
                 ", total=" + total +
-                ", ImputaIVA='" + ImputaIVA + '\'' +
-                ", ImputaIRE='" + ImputaIRE + '\'' +
-                ", ImputaIRP='" + ImputaIRP + '\'' +
-                ", Imputar='" + Imputar + '\'' +
+                ", imputaIVA='" + imputaIVA + '\'' +
+                ", imputaIRE='" + imputaIRE + '\'' +
+                ", imputaIRP='" + imputaIRP + '\'' +
+                ", imputar='" + imputar + '\'' +
                 '}';
     }
 }
-
 
 

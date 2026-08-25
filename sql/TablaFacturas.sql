@@ -16,3 +16,4 @@ CREATE TABLE IF NOT EXISTS facturas (
     imputa_irp VARCHAR(2),
     imputar VARCHAR(2)
 );
+--CONSTRAINT fk_cliente FOREIGN KEY (id_cliente) REFERENCES clientes(id)
