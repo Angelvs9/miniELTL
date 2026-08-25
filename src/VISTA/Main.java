@@ -38,7 +38,11 @@ void main() {
     //tratar datos es el que lo inserta tambien
     System.out.println("insertamos clientes:\n");
     System.out.println("===== customers-1000.csv =====\n");
+
     int totalClientes=contarLineasCSV(ConfigLoader.get().getProperty("csv.path.customers"));
+    int totalFacturas=contarLineasCSV(ConfigLoader.get().getProperty("csv.path.Bills"));
+
+
     System.out.println("el fichero csv cuenta con: " + totalClientes + " en total");
     int clientesInsertados=tratarDatos(g.getConexion(),ConfigLoader.get().getProperty("csv.path.customers"));
 
@@ -48,6 +52,7 @@ void main() {
         System.out.println("se insertaron todos lo clientes adecuadamnete");
     System.out.println("======================================================================\n");
     System.out.println("seguimos con la inserción de las facturas");
+    System.out.println("cosasa");
 
 
 

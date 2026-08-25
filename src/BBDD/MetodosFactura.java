@@ -1,9 +1,7 @@
 package BBDD;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class MetodosFactura {
 
@@ -43,4 +41,37 @@ public class MetodosFactura {
 
         return resultado;
     }
+
+    public static int insertarFacturas(Connection c,String archivo){
+        String query="insert into facturas (ruc,id_cliente,tipo_registro,tipo_comprobante,fecha_emision,metodo_pago,numero_comprobante,iva_porcentaje,parte_iva,total,imputa_iva,imputa_ire,imputa_irp,imputar)" +
+                "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement psta = c.prepareStatement(query);
+            psta.setInt(1,21);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return 1;
+    }
+
+
+    private static boolean existeCliente(Connection c,int idcliente){
+        String query="select * from clientes where id="+idcliente+";";
+        boolean existe=false;
+        try {
+            Statement sta=c.createStatement();
+            ResultSet rs = sta.executeQuery(query);
+            if(rs.next())
+                existe=true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return existe;
+    }
+
+
 }
