@@ -142,7 +142,7 @@ public class MetodosCliente {
 
         String fecha = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         String hora = java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
-        String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_" + fecha + ".log";
+        String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_clientes" + "_" + fecha + ".log";
         File f = new File(nombreLog);
 
         if (!f.exists()) {

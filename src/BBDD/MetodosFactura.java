@@ -128,7 +128,8 @@ public class MetodosFactura {
 
 
     private static boolean existeCliente(Connection c,int idcliente){
-        String query="select * from clientes where id="+idcliente+";";
+        String query="select * from clientes where id='" +idcliente+ "';";
+        System.out.println(query);
         boolean existe=false;
         try {
             Statement sta=c.createStatement();

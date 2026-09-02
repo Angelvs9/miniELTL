@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS facturas (
     id_cliente INT NOT NULL,
     tipo_registro VARCHAR(30),
     tipo_comprobante VARCHAR(30),
-    fecha_emision DATE,
+    fecha_emision varchar(7),
     metodo_pago VARCHAR(30),
     numero_comprobante VARCHAR(20),
     iva_porcentaje DECIMAL(5,2),
