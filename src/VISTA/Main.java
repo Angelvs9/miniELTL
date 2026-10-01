@@ -50,6 +50,7 @@ void main() {
         System.out.println("no se han insertado todos los clientes correctamente, se insertaron solo " +clientesInsertados+ ", revisar el log");
     else
         System.out.println("se insertaron todos lo clientes adecuadamnete");
+
     System.out.println("======================================================================\n");
     System.out.println("seguimos con la inserción de las facturas");
     int facturasinsertadas=insertarFacturas(g.getConexion(),ConfigLoader.get().getProperty("csv.path.Bills"));

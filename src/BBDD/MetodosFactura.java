@@ -89,7 +89,13 @@ public class MetodosFactura {
                     );
 
                     //relleno lo la query
-                    psta.setString(1, factura.getRuc());
+                    if (factura.getRuc()==null) {
+                        //fallara si intento insertar
+
+                    }else{
+                        psta.setString(1, factura.getRuc());
+                    }
+
                     psta.setInt(2, factura.getIdCliente());
                     psta.setString(3, factura.getTipoRegistro());
                     psta.setString(4, factura.getTipoComprobante());
