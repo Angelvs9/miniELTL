@@ -14,10 +14,10 @@ Create table IF not exists TMP_FACTURAS_NO_INSERTADAS (
     numero_comprobante  VARCHAR(400),
     iva_porcentaje VARCHAR(400),
     parte_iva VARCHAR(400),
-    linea_original VARCHAR(400)
+    linea_original VARCHAR(400),
     total VARCHAR(400),
     imputa_iva VARCHAR(400),
     imputa_ire VARCHAR(400),
     imputa_irp VARCHAR(400),
-    imputar VARCHAR(400),
+    imputar VARCHAR(400)
 );

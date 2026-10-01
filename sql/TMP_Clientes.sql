@@ -2,9 +2,9 @@
 
 DROP TABLE IF EXISTS TMP_CLIENTES_NO_INSERTADOS;
 CREATE TABLE IF NOT EXISTS TMP_CLIENTES_NO_INSERTADOS (
-    id INT PRIMARY KEY,
+    id INT,
     customer_id VARCHAR(20),
-    nombre VARCHAR(100) not null,
+    nombre VARCHAR(100),
     apellido VARCHAR(100),
     empresa VARCHAR(150),
     ciudad VARCHAR(100),
@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS TMP_CLIENTES_NO_INSERTADOS (
     email VARCHAR(150),
     fecha_suscripcion DATE,
     web VARCHAR(200),
+    activo BOOLEAN,
     nlinea INT,
     motivo VARCHAR(500),
-    fecha_carga TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_carga TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
