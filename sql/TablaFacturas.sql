@@ -1,6 +1,6 @@
 --sql de la tabla de facturas
-drop table if exists facturas;
-CREATE TABLE IF NOT EXISTS facturas (
+drop table if exists FACTURAS;
+CREATE TABLE IF NOT EXISTS FACTURAS (
     ruc VARCHAR(15) PRIMARY KEY NOT NULL,
     id_cliente INT NOT NULL,
     tipo_registro VARCHAR(30),

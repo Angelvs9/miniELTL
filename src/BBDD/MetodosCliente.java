@@ -104,9 +104,9 @@ public class MetodosCliente {
         //si sale mal enviarLog desde aqui y asi paso la excepcion y todo
         //aqui ira la query el preparedStatement
         boolean insertado=false;
-        String query="insert into clientes values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String query="insert into CLIENTES values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         //este temp es para que en caso de error yo vea directamente sustituidos los datos en el objeto
-        String temp = "insert into clientes values(" + c.getId() + ",'" + c.getCliente_id() + "','" + c.getNombre() + "','" + c.getApellido() + "','" + c.getEmpresa() + "','" + c.getCiudad() + "','" + c.getPais() + "','" + c.getNtelefono() + "','" + c.getNtelefono2() + "','" + c.getEmail() + "'," + (c.getSuscripcion() != null ? "'" + c.getSuscripcion() + "'" : "NULL") + ",'" + c.getWeb() + ",'" +c.isActivo()+  "')";
+        String temp = "insert into CLIENTES values(" + c.getId() + ",'" + c.getCliente_id() + "','" + c.getNombre() + "','" + c.getApellido() + "','" + c.getEmpresa() + "','" + c.getCiudad() + "','" + c.getPais() + "','" + c.getNtelefono() + "','" + c.getNtelefono2() + "','" + c.getEmail() + "'," + (c.getSuscripcion() != null ? "'" + c.getSuscripcion() + "'" : "NULL") + ",'" + c.getWeb() + ",'" +c.isActivo()+  "')";
         
         try {
             PreparedStatement pt=cn.prepareStatement(query);
@@ -129,6 +129,8 @@ public class MetodosCliente {
 
         } catch (SQLException e) {
             enviarLog(temp,linea,e);
+            enviarPendientes(temp,linea,e);
+
         }
 
 
@@ -142,7 +144,7 @@ public class MetodosCliente {
 
         String fecha = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         String hora = java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
-        String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_clientes" + "_" + fecha + ".log";
+        String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_CLIENTES" + "_" + fecha + ".log";
         File f = new File(nombreLog);
 
         if (!f.exists()) {
@@ -160,6 +162,23 @@ public class MetodosCliente {
         } catch (IOException ioEx) {
             Logger.getLogger(MetodosCliente.class.getName()).log(Level.SEVERE, null, ioEx);
         }
+    }
+
+    public static void enviarPendientes(String query,int contadorLinea,SQLException e){
+
+
+        String fecha = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        String hora = java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
+        String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_CLIENTES" + "_" + fecha + ".log";
+        String temp= query.replaceAll("CLIENTES","TMP_CLIENTES_NO_INSERTADOS");
+        String insertTemp = temp.substring(0, temp.length() - 1) + ","+contadorLinea+",'"+e+"',"+ "'"+fecha+" "+hora+"')";
+        System.out.println("pretransformacion: "+temp);
+        System.out.println("transformada "+insertTemp);
+
+        //ya esta la query montada, ahora hay que ver como lanzarla
+        //PreparedStatement
+
+        
     }
 
 

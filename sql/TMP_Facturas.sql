@@ -1,5 +1,5 @@
 --sql de la tabla temporal de facturas
---sql de la tabla temporal de facturas
+
 drop table if exists TMP_FACTURAS_NO_INSERTADAS;
 Create table IF not exists TMP_FACTURAS_NO_INSERTADAS (
     nlinea INT,
