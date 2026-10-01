@@ -18,7 +18,6 @@ public class MetodosCliente {
 
     private static final DateTimeFormatter FORMATO_HORA = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-    private static final DateTimeFormatter FORMATO_FECHA_HORA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
 
     public static boolean crearTablaClientes(Connection cn, String BD){
@@ -176,13 +175,10 @@ public class MetodosCliente {
 
     public static void tratarPendientes(String query, int contadorLinea, SQLException e,Connection con){
 
-
         String fecha = LocalDate.now().format(FORMATO_FECHA);
         String hora = LocalTime.now().format(FORMATO_HORA);
-        String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_CLIENTES" + "_" + fecha + ".log";
-        String temp= query.replaceAll("CLIENTES","TMP_CLIENTES_NO_INSERTADOS");
+        String temp= query.replace("CLIENTES","TMP_CLIENTES_NO_INSERTADOS");
         String insertTemp = temp.substring(0, temp.length() - 1) + ","+contadorLinea+",'"+e+"',"+ "'"+fecha+" "+hora+"')";
-        //ya esta la query montada, ahora hay que ver como lanzarla
         try {
             Statement sta=con.createStatement();
             sta.execute(insertTemp);

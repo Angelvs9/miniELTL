@@ -32,15 +32,16 @@ void main() {
     String tablaClientes = ConfigLoader.get().getProperty("sql.customerTable");
     String tablaFacturas = ConfigLoader.get().getProperty("sql.BillTable");
     String tablaClientesPendientes = ConfigLoader.get().getProperty("sql.customerTablePending");
-    //String tablaFacturasPendientes = ConfigLoader.get().getProperty("sql.BillTablePending");
+    String tablaFacturasPendientes = ConfigLoader.get().getProperty("sql.BillTablePending");
 
     gestorConexion g=new gestorConexion();
+
     crearTablaClientes(g.getConexion(),tablaClientes);
     crearTablaFacturas(g.getConexion(),tablaFacturas);
     crearTablaClientes(g.getConexion(),tablaClientesPendientes);
-    //crearTablaFacturas(g.getConexion(),tablaFacturasPendientes);
+    crearTablaFacturas(g.getConexion(),tablaFacturasPendientes);
 
-
+    /*
 
     //instertamos los clientes
     System.out.println("======================================================================\n");
@@ -60,12 +61,12 @@ void main() {
     else
         System.out.println("se insertaron todos lo clientes adecuadamnete");
 
-    /*
+    */
     System.out.println("======================================================================\n");
     System.out.println("seguimos con la inserción de las facturas");
     int facturasinsertadas=insertarFacturas(g.getConexion(),ConfigLoader.get().getProperty("csv.path.Bills"));
     System.out.println("hay tantas factaras insertadas, saldra solo 1 de momento"+facturasinsertadas);
-    */
+
 
 
 

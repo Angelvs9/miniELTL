@@ -1,3 +1,7 @@
+/*
+* Ángel Vazquez
+* */
+
 package BBDD;
 
 import MODELO.Factura;
@@ -6,10 +10,18 @@ import java.io.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MetodosFactura {
+
+    private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+    private static final DateTimeFormatter FORMATO_HORA = DateTimeFormatter.ofPattern("HH:mm:ss");
+
 
     public static boolean crearTablaFacturas(Connection cn, String BD){
         boolean resultado=true;
@@ -121,7 +133,9 @@ public class MetodosFactura {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            enviarLog(query,nlinea,e);
+            tratarPendientes(query,nlinea,e,c);
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -151,9 +165,8 @@ public class MetodosFactura {
 
     public static void enviarLog(String query,int contadorLinea,SQLException e){
 
-
-        String fecha = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        String hora = java.time.LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss"));
+        String fecha = LocalDate.now().format(FORMATO_FECHA);
+        String hora = LocalTime.now().format(FORMATO_HORA);
         String nombreLog = ConfigLoader.get().getProperty("temp.path") + "_" + fecha + ".log";
         File f = new File(nombreLog);
 
@@ -173,6 +186,22 @@ public class MetodosFactura {
             Logger.getLogger(MetodosCliente.class.getName()).log(Level.SEVERE, null, ioEx);
         }
     }
+
+    public static void tratarPendientes(String query,int contadorLinea,SQLException e,Connection cn){
+        String fecha = LocalDate.now().format(FORMATO_FECHA);
+        String hora = LocalTime.now().format(FORMATO_HORA);
+        String temp=query.replace("FACTURAS","TMP_FACTURAS_NO_INSERTADAS");
+        String insertTemp = temp.substring(0, temp.length() - 1) + ","+contadorLinea+",'"+e+"',"+ "'"+fecha+" "+hora+"')";
+        try {
+            Statement sta=cn.createStatement();
+            sta.execute(insertTemp);
+            sta.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MetodosCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
 
 
 
